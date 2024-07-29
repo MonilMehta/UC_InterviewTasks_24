@@ -1,0 +1,42 @@
+/* static/css/styles.css */
+.navbar {
+    width: 97vw;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.navbar h1 {
+    margin: 0;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+.movie-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.movie-item img {
+    width: 10vw;
+    height: auto;
+}
+.searchform{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+}

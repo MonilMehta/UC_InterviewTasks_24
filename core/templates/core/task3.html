@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h2>Stored Results:</h2>
+<ul class="movies-grid">
+    {% for movie in movies %}
+        <li class="movie-item">
+            <strong>Title:</strong> {{ movie.title }}<br>
+            <strong>Year:</strong> {{ movie.year }}<br>
+            <strong>Type:</strong> {{ movie.type }}<br>
+            <strong>Plot:</strong> {{ movie.plot }}<br>
+            <strong>Box Office:</strong> ${{ movie.box_office }}<br>
+            <strong>Rating:</strong> {{ movie.rating }}<br>
+            {% if movie.poster %}
+                <img src="{{ movie.poster.url }}" alt="{{ movie.title }}"><br>
+            {% else %}
+                <strong>No Poster Available</strong><br>
+            {% endif %}
+            <strong>Searched:</strong> {{ movie.searched }}<br>
+        </li>
+    {% empty %}
+        <li>No results found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

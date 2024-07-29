@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="content" name="content">
+        <div class="navbar">
+            <h1>Moviessss</h1>
+            <div class="searchform">
+                <form action="{% url 'task2' %}" method="GET">
+                    <label for="no">Single or Multiple:</label>
+                    <select id="no" name="no">
+                        <option value="t">One</option>
+                        <option value="s">Multiple</option>
+                    </select>
+                    <label for="search">Search for movies:</label>
+                    <input type="text" id="search" name="query" placeholder="Search for movies">
+                    <label for="type">Type:</label>
+                    <select id="type" name="type">
+                        <option value="movie">Movie</option>
+                        <option value="series">Series</option>
+                        <option value="episode">Episode</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div>
+                <a href="{% url 'task1' %}">Task 1</a>
+                <a href="#">Task 2</a>
+                <a href="#">Task 3</a>
+                <a href="#">Task 4</a>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

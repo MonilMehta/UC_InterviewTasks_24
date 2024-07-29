@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+{% block content %}
+    <h2>Compare Movies</h2>
+    <form method="GET">
+        <label for="movie1">Select Movie 1:</label>
+        <select id="movie1" name="movie1">
+            {% for movie in movies %}
+                <option value="{{ movie.title }}">{{ movie.title }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="movie2">Select Movie 2:</label>
+        <select id="movie2" name="movie2">
+            {% for movie in movies %}
+                <option value="{{ movie.title }}">{{ movie.title }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Compare</button>
+    </form>
+
+    {% if movie1 and movie2 %}
+        <h3>Comparison Result:</h3>
+        <div>
+            <h4>{{ movie1.title }}</h4>
+            <p>Rating: {{ movie1.rating }}</p>
+            <p>Box Office: {{ movie1.box_office }}</p>
+            <p>Plot: {{ movie1.plot }}</p>
+            <img src="{{ movie1.poster.url }}" alt="{{ movie1.title }} poster">
+        </div>
+        <div>
+            <h4>{{ movie2.title }}</h4>
+            <p>Rating: {{ movie2.rating }}</p>
+            <p>Box Office: {{ movie2.box_office }}</p>
+            <p>Plot: {{ movie2.plot }}</p>
+            <img src="{{ movie2.poster.url }}" alt="{{ movie2.title }} poster">
+        </div>
+
+        <h3>Winner: {{ winner }}</h3>
+    {% endif %}
+{% endblock %}

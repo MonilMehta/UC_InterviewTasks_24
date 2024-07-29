@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+{% block content %}
+<h2>Search Results:</h2>
+<ul class="movies-grid">
+    {% for movie in movies %}
+        {% if movie.Title %}
+        <li class="movie-item">
+            <strong>Title:</strong> {{ movie.Title }}<br>
+            <strong>Year:</strong> {{ movie.Year }}<br>
+            <strong>Type:</strong> {{ movie.Type }}<br>
+            {% if movie.Poster != "N/A" %}
+                <img src="{{ movie.Poster }}" alt="{{ movie.Title }}"><br>
+            {% else %}
+                <strong>No Poster Available</strong><br>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
