@@ -54,10 +54,10 @@ Welcome to the DJ Unicode Interview Tasks 2024! This project allows you to searc
     - Navigate to `http://127.0.0.1:8000` in your web browser.
 
 ## 🎨 Screenshots
-- **Home Page**: ![Search Page](assets/home.png)
-- **Search Page**: ![Search Page](assets/task2.png)
+- **Home Page**: ![Search Page](assets/Home.png)
+- **Search Page**: ![Search Page](assets/Task2.png)
 - **Database Page**: ![Search Page](assets/task3.png)
-- **Comparison Page**: ![Comparison Page](assets/task4.png)
+- **Comparison Page**: ![Comparison Page](assets/task4.jpeg)
 
 ## 📚 Usage
 
