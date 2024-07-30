@@ -1,6 +1,6 @@
 # UC_InterviewTasks_24
  
-# 🎬 DJ Unicode Taks - Movies Website 🎥
+# 🎬 DJ Unicode Tasks - Movies Website 🎥
 
 Task Link - [Google Drive Link](https://drive.google.com/file/d/1_olbHxt4P4TsrTQE8QznGJk-wvgnka-d/view?usp=sharing)
 
@@ -17,8 +17,8 @@ Welcome to the DJ Unicode Interview Tasks 2024! This project allows you to searc
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/movie-comparison-app.git
-    cd movie-comparison-app
+    git clone https://github.com/MonilMehta/UC_InterviewTasks_24.git
+    cd UC_InterviewTasks_24
     ```
 
 2. **Create and Activate a Virtual Environment**:
@@ -33,28 +33,31 @@ Welcome to the DJ Unicode Interview Tasks 2024! This project allows you to searc
     ```
 
 4. **Configure Environment Variables**:
+    - Make a `.env` file in root directory.
     - Add your OMDB API key to a `.env` file in the root directory:
       ```env
       OMDB_API_KEY=your_api_key_here
       ```
 
-5. **Run Migrations**:
+6. **Run Migrations**:
     ```bash
+    python manage.py migrate
     python manage.py migrate
     ```
 
-6. **Start the Development Server**:
+7. **Start the Development Server**:
     ```bash
     python manage.py runserver
     ```
 
-7. **Open the App**:
+8. **Open the App**:
     - Navigate to `http://127.0.0.1:8000` in your web browser.
 
 ## 🎨 Screenshots
-
-- **Search Page**: ![Search Page](assets/screenshots/search_page.png)
-- **Comparison Page**: ![Comparison Page](assets/screenshots/comparison_page.png)
+- **Home Page**: ![Search Page](assets/home.png)
+- **Search Page**: ![Search Page](assets/task2.png)
+- **Database Page**: ![Search Page](assets/task3.png)
+- **Comparison Page**: ![Comparison Page](assets/task4.png)
 
 ## 📚 Usage
 
@@ -76,4 +79,4 @@ For any questions or feedback, please reach out to [your.email@example.com](mail
 
 ---
 
-Happy comparing! 🎉
+Happy Coding! 🎉
