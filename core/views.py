@@ -2,18 +2,18 @@ from django.shortcuts import get_object_or_404, render
 from requests import get
 from .models import Movie
 from django.core.files.base import ContentFile
+from django.conf import settings
 import os
 
-# Create your views here.
-
 def task1(request):
-    response = get('http://www.omdbapi.com/?apikey=4a3b711b&s=avengers&page=1')
+    api_key = settings.OMDB_API_KEY
+    response = get(f'http://www.omdbapi.com/?apikey={api_key}&s=avengers&page=1')
     data = response.json()
     movies = data.get('Search', [])  
-    response = get('http://www.omdbapi.com/?apikey=4a3b711b&s=avengers&page=2')
+    response = get(f'http://www.omdbapi.com/?apikey={api_key}&s=avengers&page=2')
     data = response.json()
     movies += data.get('Search', [])
-    response = get('http://www.omdbapi.com/?apikey=4a3b711b&s=avengers&page=3')
+    response = get(f'http://www.omdbapi.com/?apikey={api_key}&s=avengers&page=3')
     data = response.json()
     movies += data.get('Search', [])
     return render(request, 'core/task1.html', context={'movies': movies})
@@ -24,11 +24,13 @@ def task2(request):
     no = request.GET.get('no')
     print(query, t, no)
 
+    api_key = settings.OMDB_API_KEY
+
     if query and t and no:
         if no == 't':
-            api_url = f"http://www.omdbapi.com/?t={query}&type={t.lower()}&apikey=4a3b711b"
+            api_url = f"http://www.omdbapi.com/?t={query}&type={t.lower()}&apikey={api_key}"
         else:
-            api_url = f"http://www.omdbapi.com/?s={query}&type={t.lower()}&apikey=4a3b711b"
+            api_url = f"http://www.omdbapi.com/?s={query}&type={t.lower()}&apikey={api_key}"
         
         response = get(api_url)
         data = response.json()
@@ -42,7 +44,7 @@ def task2(request):
                 image_name = os.path.basename(poster_url)
                 image_file = ContentFile(response.content)
                 # Create the movie instance
-                if(Movie.objects.filter(title=data['Title']).exists()):
+                if Movie.objects.filter(title=data['Title']).exists():
                     m = Movie.objects.get(title=data['Title'])
                     m.searched += 1
                     m.save()
